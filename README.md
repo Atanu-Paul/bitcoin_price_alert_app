@@ -5,19 +5,15 @@ __This is a python script package, bitcoin price notification to get notified fo
 # DESCRIPTION
 __*Bitcoin price is a fickle thing. You never really know where it’s going to be at the end of the day. So, instead of constantly checking various sites for the latest updates, let’s make a Python app to do the work for you.*__
 
-__*We’re going to use the popular automation website IFTTT.*__
-
-__*We’re going to create 4 IFTTT applets and 1 gmail service:*__
-
-__*One for emergency notification when Bitcoin price falls under a certain threshold and the emergency notification plus normal price update will send to any app of the users choice out of the 5 option.*__
-
-__*These will be triggered by our Python app which will consume the data from the Coinmarketcap API.*__
-
-__*An IFTTT applet is composed of two parts: a trigger and an action.*__
-
-__*Trigger will be a webhook service provided by IFTTT.*__
-
-__*Our Python app will make an HTTP request to the webhook URL which will trigger an action. Now, this is the fun part—the action could be almost anything you want. IFTTT offers a multitude of actions like sending an email, updating a Google Spreadsheet and even calling your phone*__
+<ul>
+  <li>We’re going to use the popular automation website IFTTT.</li>
+  <li>We’re going to create 4 IFTTT applets and 1 gmail service:</li>
+  <li>One for emergency notification when Bitcoin price falls under a certain threshold and the emergency notification plus normal price update will send to any app of the users choice out of the 5 option.</li>
+  <li>These will be triggered by our Python app which will consume the data from the Coinmarketcap API.</li>
+  <li>An IFTTT applet is composed of two parts: a trigger and an action.</li>
+  <li>Trigger will be a webhook service provided by IFTTT.</li>
+  <li>Our Python app will make an HTTP request to the webhook URL which will trigger an action. Now, this is the fun part—the action could be almost anything you want. IFTTT offers a multitude of actions like sending an email, updating a Google Spreadsheet and even calling your phone</li>
+</ul>
 
 ## Prerequisite
 
