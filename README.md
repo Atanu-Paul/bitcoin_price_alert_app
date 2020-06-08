@@ -23,11 +23,11 @@ __*Our Python app will make an HTTP request to the webhook URL which will trigge
 
 Must have one of the following app installed and/or must join or follow one of the following accounts:
   - IFTTT App
-  - Telegram App and must join this channel click on the image to join [![telegram](https://media2.giphy.com/media/1gdue30RkC7TPsefAP/giphy.gif)](https://t.me/mybitcoinproject)
-  - Twitter App and must follow this account click on the image to follow [![twitter](https://media.giphy.com/media/M9O6ePwNJ58UMF1Rvq/giphy.gif)](https://twitter.com/AtanuPa02151991)
+  - Telegram App and must join this channel click on the image to join <a href="https://t.me/mybitcoinproject"> <img src="https://media2.giphy.com/media/1gdue30RkC7TPsefAP/giphy.gif" width="80"/></a> 
+  - Twitter App and must follow this account click on the image to follow <a href="https://twitter.com/AtanuPa02151991"> <img src="https://media.giphy.com/media/M9O6ePwNJ58UMF1Rvq/giphy.gif" width="80" /></a> 
   - An email account
   - An contact number to recive sms
-
+  
 #### Github Link : https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/tree/v0.5.1
 
 ### Tech
