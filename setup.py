@@ -24,7 +24,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
         # Define that your audience are developers
         'Intended Audience :: Developers',
-        'Topic :: Notifications Application',
+        'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',   # Again, pick a license
         # Specify which pyhton versions that you want to support
         'Programming Language :: Python :: 3',
