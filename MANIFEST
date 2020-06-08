@@ -2,4 +2,4 @@
 setup.cfg
 setup.py
 bitcoin_price_alert_app\__init__.py
-bitcoin_price_alert_app\bitcoin-price-notifier.py
+bitcoin_price_alert_app\bitcoin_price_notifier.py
