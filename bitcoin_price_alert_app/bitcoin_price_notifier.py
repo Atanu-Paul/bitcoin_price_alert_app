@@ -1,10 +1,13 @@
-# Bitcon Price Alert V0.5
-# A python app that fetches the current price of bitcoins and
-#  sends notifications via Telegram IFTTT or Email
-# to run this program type
-#  python bitcoin_alert_prototype1 -e 10000 -t 60 -d gmail
+# Bitcon Price Alert V0.6
 
-# v0.5 integration of twitter notification and android sms
+# A python app that fetches the current price of bitcoins and
+# sends notifications via Telegram IFTTT or Email
+# to run this program type
+
+# python bitcoin_alert_prototype1 -e 10000 -t 60 -d gmail
+
+# v0.6 changes in the post method
+# one post logic for all the post function
 
 # importing the required modules
 
@@ -17,12 +20,11 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
-
 # the coinmarketcap api url
 BITCOIN_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
-# setting the parameters to send
-#  with the above url to fetch INR converted BTC value
+# setting the parameters to send with
+# the above url to fetch INR converted BTC value
 parameters = {
     'start': '1',
     'limit': '1',
@@ -39,16 +41,14 @@ headers = {
 # ifttt webhook-telegram applet url to send notofications on telegram
 IFTTT_WEBHOOKS_TELEGRAM = "https://maker.ifttt.com/trigger/bitcoin_price_update/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
-# ifttt webhook-ifttt notification applet url to
-#  send notofications on ifttt app
+# ifttt webhook-ifttt notification
+#  applet url to send notofications on ifttt app
 IFTTT_WEBHOOK_PUSH_NOTIFICATION = "https://maker.ifttt.com/trigger/bitcoin_price_emergency_alert/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
-# ifttt webhook-twitter post applet url to send
-#  notofications on ifttt app
+# ifttt webhook-twitter post applet url to send notofications on ifttt app
 IFTTT_WEBHOOK_TWITTER = "https://maker.ifttt.com/trigger/twitter-notification-applet/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
-# ifttt webhook-android-sms applet url to send
-#  notofications on ifttt app
+# ifttt webhook-android-sms applet url to send notofications on ifttt app
 IFTTT_WEBHOOK_SMS = "https://maker.ifttt.com/trigger/android-sms-applet/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
 
@@ -68,51 +68,51 @@ def bitcoin_price_alert():
     return round(price)
 
 
+def post_event(post_event_url, data, event, phone):
+
+    if(len(phone) > 0):
+        data1 = {'value1': data, 'value2': phone}
+
+        post_event = post_event_url.format(event)
+
+        requests.post(post_event, json=data1)
+
+    if(len(phone) == 0):
+        data = {'value1': data}
+
+        post_event = post_event_url.format(event)
+
+        requests.post(post_event, json=data)
+
+
 # function to send the telegram notification POST method
 def post_ifttt_telegram(event, value):
     print('post_ifttt_telegram()')
-    data = {'value1': value}
-
-    post_event = IFTTT_WEBHOOKS_TELEGRAM.format(event)
-
-    requests.post(post_event, json=data)
-
+    phone = '0'
+    post_event(IFTTT_WEBHOOKS_TELEGRAM, value, event, phone)
     print('Channel message has been sent')
 
 
 # function to send the twit POST method
 def post_ifttt_twitter(event, value):
     print('post_ifttt_twitter()')
-    data = {'value1': value}
-
-    post_event = IFTTT_WEBHOOK_TWITTER.format(event)
-
-    requests.post(post_event, json=data)
-
+    phone = '0'
+    post_event(IFTTT_WEBHOOK_TWITTER, value, event, phone)
     print('Twitt has been posted')
 
 
 # function to send the android sms POST method
 def post_ifttt_android_sms(event, value, phone):
-    print('post_ifttt_twitter()')
-    data = {'value1': value, 'value2': phone}
-
-    post_event = IFTTT_WEBHOOK_SMS.format(event)
-
-    requests.post(post_event, json=data)
-
+    print('post_ifttt_android_sms()', phone)
+    post_event(IFTTT_WEBHOOK_SMS, value, event, phone)
     print('SMS has been Sent')
 
 
 # function to send the ifttt notification POST method
 def post_ifttt_push_notification(event, value):
     print('post_ifttt_push_notification()')
-    data = {'value1': value}
-
-    post_event = IFTTT_WEBHOOK_PUSH_NOTIFICATION.format(event)
-
-    requests.post(post_event, json=data)
-
+    phone = '0'
+    post_event(IFTTT_WEBHOOK_PUSH_NOTIFICATION, value, event, phone)
     print('Notification has been sent')
 
 
@@ -182,8 +182,9 @@ def email_message_formate(bitcoin_log):
     return '\n'.join(rows)
 
 
-# ifttt push notification master driver function
-#  that runs to fetch BTC value and send a push notification
+# ifttt push notification master
+# driver function that runs to fetch
+# BTC value and send a push notification
 def ifttt_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -209,8 +210,9 @@ def ifttt_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# telegram notification master driver function
-#  that runs to fetch BTC value and send a telegram message
+# telegram notification master driver
+# function that runs to fetch BTC
+# value and send a telegram message
 def telegram_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -237,7 +239,8 @@ def telegram_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
 
 
 # twitter post master driver function
-#  that runs to fetch BTC value and post on twitter account
+# that runs to fetch BTC value and
+# post on twitter account
 def twitter_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -264,7 +267,8 @@ def twitter_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
 
 
 # sms post master driver function that
-#  runs to fetch BTC value and sends and sms to the number
+# runs to fetch BTC value and sends
+# and sms to the number
 def sms_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -329,7 +333,7 @@ def master_control():
         description='Bitcoin Price Alert App.', epilog='This app gives the value of 1 BTC in INR. Destination (-d) must be provided. To recive notification on IFTTT install IFTTT mobile app. To recive notification on Telegram install Telegram mobile app and join this channel https://t.me/mybitcoinproject . Prerequisite : MUST HAVE A IFTTT APP AND TELEGRAM APP INSTALLED TO RECIVE NOTIFICATION ALSO MUST JOIN THE TELEGRAM Bit_Coin CHANNEL TO RECIVE MESSAGES. PRESS Ctrl+C to terminate the app')
 
     cmd_input.add_argument('-a', '--alert_amount', type=int, nargs=1, default=[
-                           732902], metavar='alert_amount', help='The price of 1 bitcoin when an emergency alert will be sent. Default is 7,32,902 INR')
+                           10000], metavar='alert_amount', help='The price of 1 bitcoin when an emergency alert will be sent. Default is 10000 USD')
 
     cmd_input.add_argument('-t', '--time_interval', type=int, nargs=1, default=[
                            5], metavar='time_interval', help='The time interval in minutes after which the lastest value of bitcoin will be fetched. Defalut is 5 minutes')
