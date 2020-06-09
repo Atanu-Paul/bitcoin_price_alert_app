@@ -39,13 +39,16 @@ headers = {
 # ifttt webhook-telegram applet url to send notofications on telegram
 IFTTT_WEBHOOKS_TELEGRAM = "https://maker.ifttt.com/trigger/bitcoin_price_update/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
-# ifttt webhook-ifttt notification applet url to send notofications on ifttt app
+# ifttt webhook-ifttt notification applet url to
+#  send notofications on ifttt app
 IFTTT_WEBHOOK_PUSH_NOTIFICATION = "https://maker.ifttt.com/trigger/bitcoin_price_emergency_alert/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
-# ifttt webhook-twitter post applet url to send notofications on ifttt app
+# ifttt webhook-twitter post applet url to send
+#  notofications on ifttt app
 IFTTT_WEBHOOK_TWITTER = "https://maker.ifttt.com/trigger/twitter-notification-applet/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
-# ifttt webhook-android-sms applet url to send notofications on ifttt app
+# ifttt webhook-android-sms applet url to send
+#  notofications on ifttt app
 IFTTT_WEBHOOK_SMS = "https://maker.ifttt.com/trigger/android-sms-applet/with/key/bhU0A_GCHddT_gcdRvdW5rmVVXFl-rZittf1lV2-O3q"
 
 
@@ -267,11 +270,10 @@ def sms_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('The app is running')
     print('You will be prompted when the notification is sent')
 
-    print(
-        'Enter the Phone Number to send SMS. ')
+    print('Enter the Phone Number to send SMS.')
 
     phone_no = input(
-        'Include country code e.g. 12024561111,+911234567890---->')
+        'Include country code e.g. 12024561111, +911234567890---->')
 
     bitcoin_log = []
     BITCOIN_ALERT_LMIT = float(alert_limit[0])
@@ -318,7 +320,7 @@ def send_email_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# the master control function the heart of the app
+#  the master control function the heart of the app
 #  that takes imput from cmd using the argsparser
 #  libary and calls the right function and passes the argumments.
 def master_control():
@@ -327,7 +329,7 @@ def master_control():
         description='Bitcoin Price Alert App.', epilog='This app gives the value of 1 BTC in INR. Destination (-d) must be provided. To recive notification on IFTTT install IFTTT mobile app. To recive notification on Telegram install Telegram mobile app and join this channel https://t.me/mybitcoinproject . Prerequisite : MUST HAVE A IFTTT APP AND TELEGRAM APP INSTALLED TO RECIVE NOTIFICATION ALSO MUST JOIN THE TELEGRAM Bit_Coin CHANNEL TO RECIVE MESSAGES. PRESS Ctrl+C to terminate the app')
 
     cmd_input.add_argument('-a', '--alert_amount', type=int, nargs=1, default=[
-                           10000], metavar='alert_amount', help='The price of 1 bitcoin when an emergency alert will be sent. Default is 10000 USD')
+                           732902], metavar='alert_amount', help='The price of 1 bitcoin when an emergency alert will be sent. Default is 7,32,902 INR')
 
     cmd_input.add_argument('-t', '--time_interval', type=int, nargs=1, default=[
                            5], metavar='time_interval', help='The time interval in minutes after which the lastest value of bitcoin will be fetched. Defalut is 5 minutes')
