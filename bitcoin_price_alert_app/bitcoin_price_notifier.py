@@ -1,8 +1,10 @@
 # Bitcon Price Alert V0.5
-# A python app that fetches the current price of bitcoins and sends notifications via Telegram IFTTT or Email
-# to run this program type python bitcoin_alert_prototype1 -e 10000 -t 60 -d gmail
+# A python app that fetches the current price of bitcoins and
+#  sends notifications via Telegram IFTTT or Email
+# to run this program type
+#  python bitcoin_alert_prototype1 -e 10000 -t 60 -d gmail
 
-# v0.5 integration of twitter notification and android sms 
+# v0.5 integration of twitter notification and android sms
 
 # importing the required modules
 
@@ -14,12 +16,13 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
-from requests import Request, Session
+
 
 # the coinmarketcap api url
 BITCOIN_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
-# setting the parameters to send with the above url to fetch INR converted BTC value
+# setting the parameters to send
+#  with the above url to fetch INR converted BTC value
 parameters = {
     'start': '1',
     'limit': '1',
@@ -114,7 +117,6 @@ def post_ifttt_push_notification(event, value):
 def send_emails(bitcoin_log):
     print('send_emails()')
     # fetching the current bitcoin value
-    #bitcoin_current_price = bitcoin_log
 
     # taking the recipent details as user input
     recipent_name = input('Please enter the Recipent/Reciver Name.')
@@ -177,9 +179,12 @@ def email_message_formate(bitcoin_log):
     return '\n'.join(rows)
 
 
-# ifttt push notification master driver function that runs to fetch BTC value and send a push notification
+# ifttt push notification master driver function
+#  that runs to fetch BTC value and send a push notification
 def ifttt_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
-    print('Please wait from sometime the app is running you will be prompted when the notification is sent')
+    print('Please wait from sometime.')
+    print('The app is running')
+    print('You will be prompted when the notification is sent')
     bitcoin_log = []
     BITCOIN_ALERT_LMIT = float(alert_limit[0])
     TIME_INTERVAL = float(time_interval[0])
@@ -201,9 +206,12 @@ def ifttt_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# telegram notification master driver function that runs to fetch BTC value and send a telegram message
+# telegram notification master driver function
+#  that runs to fetch BTC value and send a telegram message
 def telegram_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
-    print('Please wait from sometime the app is running you will be prompted when the message is sent')
+    print('Please wait from sometime.')
+    print('The app is running')
+    print('You will be prompted when the notification is sent')
     bitcoin_log = []
     BITCOIN_ALERT_LMIT = float(alert_limit[0])
     TIME_INTERVAL = float(time_interval[0])
@@ -225,9 +233,12 @@ def telegram_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# twitter post master driver function that runs to fetch BTC value and post on twitter account
+# twitter post master driver function
+#  that runs to fetch BTC value and post on twitter account
 def twitter_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
-    print('**Please wait from sometime the app is running you will be prompted when the message is sent')
+    print('Please wait from sometime.')
+    print('The app is running')
+    print('You will be prompted when the notification is sent')
     bitcoin_log = []
     BITCOIN_ALERT_LMIT = float(alert_limit[0])
     TIME_INTERVAL = float(time_interval[0])
@@ -249,12 +260,18 @@ def twitter_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# sms post master driver function that runs to fetch BTC value and sends and sms to the number
+# sms post master driver function that
+#  runs to fetch BTC value and sends and sms to the number
 def sms_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
-    print('Please wait from sometime the app is running you will be prompted when the message is sent')
+    print('Please wait from sometime.')
+    print('The app is running')
+    print('You will be prompted when the notification is sent')
+
+    print(
+        'Enter the Phone Number to send SMS. ')
 
     phone_no = input(
-        'Enter the Phone Number to send SMS. Include country code e.g. 12024561111,+911234567890----> ')
+        'Include country code e.g. 12024561111,+911234567890---->')
 
     bitcoin_log = []
     BITCOIN_ALERT_LMIT = float(alert_limit[0])
@@ -279,7 +296,9 @@ def sms_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
 
 # driver code to send BTC current value notification through email
 def send_email_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
-    print('Please wait from sometime the app is running you will be prompted from name and mail id')
+    print('Please wait from sometime.')
+    print('The app is running')
+    print('You will be prompted when the notification is sent')
     bitcoin_log = []
     BITCOIN_ALERT_LMIT = float(alert_limit[0])
     TIME_INTERVAL = float(time_interval[0])
@@ -299,7 +318,9 @@ def send_email_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# the master control function the heart of the app that takes imput from cmd using the argsparser libary and calls the right function and passes the argumments.
+# the master control function the heart of the app
+#  that takes imput from cmd using the argsparser
+#  libary and calls the right function and passes the argumments.
 def master_control():
     print('Welcome To Bitcoin Price Alert App')
     cmd_input = argparse.ArgumentParser(
@@ -319,13 +340,17 @@ def master_control():
 
     args = cmd_input.parse_args()
 
-    print('Bitcoin App started with time interval of ',
-          args.time_interval[0], ' and threshold = $',  args.alert_amount[0], 'for destination ', args.destination_app)
+    print('Bitcoin App started with time interval of ', args.time_interval[0])
+    print('and threshold = $',
+          args.alert_amount[0], 'for destination ', args.destination_app)
 
-    # this is the switch control this will call only that function that is mentioned
+    # this is the switch control this will call only
+    #  that function that is mentioned
     # by user and transfer the control to it.
     if(args.destination_app == 'telegram'):
-        print('To recive notification on Telegram install Telegram mobile app and join this channel https://t.me/mybitcoinproject .')
+        print('To recive notification on Telegram')
+        print('install Telegram mobile app and join.')
+        print('this channel https://t.me/mybitcoinproject')
         telegram_master_driver(
             args.alert_amount, args.time_interval, args.log_lenght)
     if(args.destination_app == 'ifttt'):
