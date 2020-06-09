@@ -25,6 +25,7 @@ Must have one of the following app installed and/or must join or follow one of t
   - An contact number to recive sms
   
 #### Github Link : https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.6.tar.gz
+#### Pypi Link : https://pypi.org/project/bitcoin-price-alert-app/0.6/
 
 ### Tech
 
@@ -53,7 +54,7 @@ pip install requests
 3 Install bitcoin_price_alert_app package/module from PIP, to do that run the following command on terminal
 
 ```sh
-pip install bitcoin-price-alert-app==0.5
+pip install bitcoin-price-alert-app==0.6
 ```
 __IF THE APP DOES NOT INSTALL OR RUN PROPERLY AFTER STEP 3 THEN GO TO [THIS LINK](https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.5.1.tar.gz) TO DOWNLOAD THE ZIP FILE.__
 
