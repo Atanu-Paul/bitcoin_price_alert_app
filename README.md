@@ -24,8 +24,8 @@ Must have one of the following app installed and/or must join or follow one of t
   - An email account
   - An contact number to recive sms
   
-#### Github Link : https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.6.tar.gz
-#### Pypi Link : https://pypi.org/project/bitcoin-price-alert-app/0.6/
+#### Github Link : https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/tree/v0.6
+#### Pypi Link   : https://pypi.org/project/bitcoin-price-alert-app/0.6/
 
 ### Tech
 
