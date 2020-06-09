@@ -13,7 +13,7 @@ setup(
     # Provide either the link to your github or to your website
     url='https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app',
     # I explain this later on
-    download_url='https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.5.tar.gz',
+    download_url='https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.6.tar.gz',
     # Keywords that define your package best
     keywords=['PYTHON', 'BITCOIN', 'TELEGRAM', 'IFTTT', 'EMAIL','Twitter','Android-SMS'],
     install_requires=[            # I get to this in a second
