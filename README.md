@@ -56,7 +56,7 @@ pip install requests
 ```sh
 pip install bitcoin-price-alert-app==0.6
 ```
-__IF THE APP DOES NOT INSTALL OR RUN PROPERLY AFTER STEP 3 THEN GO TO [THIS LINK](https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.5.1.tar.gz) TO DOWNLOAD THE ZIP FILE.__
+__IF THE APP DOES NOT INSTALL OR RUN PROPERLY AFTER STEP 3 THEN GO TO [THIS LINK](https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.6.tar.gz) TO DOWNLOAD THE ZIP FILE.__
 
 ### ALTERNATE STEP TO RUN THE APP AFTER DOWNLOADING THE ZIP FILE
 
