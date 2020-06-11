@@ -35,7 +35,7 @@ headers = {
     'Accepts': 'application/json',
 
     # coinmarketcap individual key
-    'X-CMC_PRO_API_KEY': 'eefc4ab7-05d5-458d-8dfe-7297fe574a9d',
+    'X-CMC_PRO_API_KEY': 'eefc4ab7-05d5-458d-8dfe-7297fe574a9e',
 }
 
 # ifttt webhook-telegram applet url to send notofications on telegram
