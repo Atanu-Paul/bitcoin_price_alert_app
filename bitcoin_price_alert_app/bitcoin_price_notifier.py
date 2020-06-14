@@ -1,13 +1,15 @@
-# Bitcon Price Alert V0.6
+'''
+Bitcon Price Alert V0.6
 
-# A python app that fetches the current price of bitcoins and
-# sends notifications via Telegram IFTTT or Email
-# to run this program type
+A python app that fetches the current price of bitcoins and
+sends notifications via Telegram IFTTT or Email
+to run this program type
 
-# python bitcoin_alert_prototype1 -e 10000 -t 60 -d gmail
+python bitcoin_alert_prototype1 -e 10000 -t 60 -d gmail
 
-# v0.6 changes in the post method
-# one post logic for all the post function
+v0.6 changes in the post method
+one post logic for all the post function
+'''
 
 # importing the required modules
 
@@ -67,6 +69,8 @@ def bitcoin_price_alert():
 
     return round(price)
 
+# function to send all the ifttt post notifications
+
 
 def post_event(post_event_url, data, event, phone):
 
@@ -86,6 +90,8 @@ def post_event(post_event_url, data, event, phone):
 
 
 # function to send the telegram notification POST method
+
+
 def post_ifttt_telegram(event, value):
     print('post_ifttt_telegram()')
     phone = '0'
@@ -94,6 +100,8 @@ def post_ifttt_telegram(event, value):
 
 
 # function to send the twit POST method
+
+
 def post_ifttt_twitter(event, value):
     print('post_ifttt_twitter()')
     phone = '0'
@@ -102,6 +110,8 @@ def post_ifttt_twitter(event, value):
 
 
 # function to send the android sms POST method
+
+
 def post_ifttt_android_sms(event, value, phone):
     print('post_ifttt_android_sms()', phone)
     post_event(IFTTT_WEBHOOK_SMS, value, event, phone)
@@ -109,6 +119,8 @@ def post_ifttt_android_sms(event, value, phone):
 
 
 # function to send the ifttt notification POST method
+
+
 def post_ifttt_push_notification(event, value):
     print('post_ifttt_push_notification()')
     phone = '0'
@@ -117,9 +129,10 @@ def post_ifttt_push_notification(event, value):
 
 
 # function to send notifications in mails.
+
+
 def send_emails(bitcoin_log):
     print('send_emails()')
-    # fetching the current bitcoin value
 
     # taking the recipent details as user input
     recipent_name = input('Please enter the Recipent/Reciver Name.')
@@ -168,7 +181,7 @@ def telegram_message_formate(bitcoin_log):
         rows.append(row)
     return '<br>'.join(rows)
 
-# function to formate the telegram message
+# function to formate the email message
 
 
 def email_message_formate(bitcoin_log):
@@ -182,9 +195,13 @@ def email_message_formate(bitcoin_log):
     return '\n'.join(rows)
 
 
-# ifttt push notification master
-# driver function that runs to fetch
-# BTC value and send a push notification
+'''
+ifttt push notification master
+driver function that runs to fetch
+BTC value and send a push notification
+'''
+
+
 def ifttt_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -210,9 +227,13 @@ def ifttt_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# telegram notification master driver
-# function that runs to fetch BTC
-# value and send a telegram message
+'''
+telegram notification master driver
+function that runs to fetch BTC
+value and send a telegram message
+'''
+
+
 def telegram_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -238,9 +259,13 @@ def telegram_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# twitter post master driver function
-# that runs to fetch BTC value and
-# post on twitter account
+'''
+twitter post master driver function
+that runs to fetch BTC value and
+post on twitter account
+'''
+
+
 def twitter_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -266,9 +291,13 @@ def twitter_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-# sms post master driver function that
-# runs to fetch BTC value and sends
-# and sms to the number
+'''
+sms post master driver function that
+runs to fetch BTC value and sends
+and sms to the number
+'''
+
+
 def sms_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
     print('Please wait from sometime.')
     print('The app is running')
@@ -324,9 +353,13 @@ def send_email_master_driver(alert_limit, time_interval, bitcoin_log_lenght):
         time.sleep(TIME_INTERVAL*60)
 
 
-#  the master control function the heart of the app
-#  that takes imput from cmd using the argsparser
-#  libary and calls the right function and passes the argumments.
+'''
+the master control function the heart of the app
+that takes imput from cmd using the argsparser
+libary and calls the right function and passes the argumments.
+'''
+
+
 def master_control():
     print('Welcome To Bitcoin Price Alert App')
     cmd_input = argparse.ArgumentParser(
@@ -350,9 +383,11 @@ def master_control():
     print('and threshold = $',
           args.alert_amount[0], 'for destination ', args.destination_app)
 
-    # this is the switch control this will call only
-    #  that function that is mentioned
-    # by user and transfer the control to it.
+    '''
+        this is the switch control this will call only
+        that function that is mentioned
+        by user and transfer the control to it.
+        '''
     if(args.destination_app == 'telegram'):
         print('To recive notification on Telegram')
         print('install Telegram mobile app and join.')
