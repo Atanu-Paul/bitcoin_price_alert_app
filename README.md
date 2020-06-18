@@ -98,7 +98,7 @@ to run the app type the following command
 ```
 python bitcoin_price_notifier.py -a 5000 -t 3 -l 5 -d email
 ```
-* -a : alert limt amount in USD
+* -a : alert limt amount in INR
 * -t : time interval in minutes
 * -l : the number of records needed
 * -d : the destination app like email or telegram etc __THIS MUST BE PROVIDED__
