@@ -56,7 +56,7 @@ pip install requests
 ```sh
 pip install bitcoin-price-alert-app==0.6
 ```
-__IF THE APP DOES NOT INSTALL OR RUN PROPERLY AFTER STEP 3 THEN GO TO [THIS LINK](https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.6.tar.gz) TO DOWNLOAD THE ZIP FILE.__
+__IF THE APP DOES NOT INSTALL OR RUN PROPERLY AFTER STEP 3 THEN GO TO [THIS LINK](https://github.com/Atanu-Paul-au6/bitcoin_price_alert_app/archive/v0.6.2.tar.gz) TO DOWNLOAD THE ZIP FILE.__
 
 ### ALTERNATE STEP TO RUN THE APP AFTER DOWNLOADING THE ZIP FILE
 
@@ -80,7 +80,7 @@ Bitcoin Price Alert App.
 optional arguments:
   -h, --help            show this help message and exit
   -a alert_amount, --alert_amount alert_amount
-                        The price of 1 bitcoin when an emergency alert will be sent. Default is 10000 USD
+                        The price of 1 bitcoin when an emergency alert will be sent. Default is 7,18,715 INR
   -t time_interval, --time_interval time_interval
                         The time interval in minutes after which the lastest value of bitcoin will be fetched. Defalut is 5 minutes
   -l log_lenght, --log_lenght log_lenght
